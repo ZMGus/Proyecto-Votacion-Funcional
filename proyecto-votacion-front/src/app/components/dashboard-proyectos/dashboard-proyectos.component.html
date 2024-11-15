@@ -1,0 +1,48 @@
+<app-header [backRoute]="'/categorias'" [title]="'Volver a Categorías'"></app-header>
+
+<!-- Barra de búsqueda -->
+<div class="search-container">
+  <input
+    matInput
+    placeholder="Buscar proyectos..."
+    [(ngModel)]="searchQuery"
+    (input)="buscarProyecto()"
+    class="search-bar"
+  />
+</div>
+<div class="project-container">
+<button mat-raised-button color="primary" (click)="confirmarVotacion()">
+  Confirmar Votación
+</button>
+</div>
+<!-- Contenedor de Proyectos -->
+<div class="project-container">
+  <div *ngFor="let proyecto of proyectosFiltrados" class="project-card">
+    <mat-card class="example-card">
+      <!-- Imagen del proyecto (tamaño fijo) -->
+      <img mat-card-image [src]="proyecto.logo" alt="{{ proyecto.nombre_proyecto }}" class="project-image" />
+      
+      <!-- Título del proyecto -->
+      <mat-card-title class="project-title">{{ proyecto.nombre_proyecto }}</mat-card-title>
+      
+      <!-- Botón para desplegar la descripción -->
+      <button mat-button (click)="proyecto.mostrarDescripcion = !proyecto.mostrarDescripcion" class="description-button">
+        {{ proyecto.mostrarDescripcion ? 'Ocultar descripción' : 'Ver descripción' }}
+      </button>
+      
+      <!-- Descripción del proyecto (oculta inicialmente) -->
+      <mat-card-content *ngIf="proyecto.mostrarDescripcion" class="project-description">
+        <p>{{ proyecto.descripcion_proyecto }}</p>
+      </mat-card-content>
+      
+      <!-- Botón de selección (centrado abajo) -->
+      </mat-card>
+      <mat-radio-group [(ngModel)]="selectedProyectoId" class="w-100">
+        <mat-radio-button [value]="proyecto.id" class="circle-radio"></mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+</div>
+
+
+

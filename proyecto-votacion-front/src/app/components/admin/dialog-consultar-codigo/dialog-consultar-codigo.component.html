@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Consultar Código de Acceso</h1>
+<div mat-dialog-content>
+  <form [formGroup]="consultaForm">
+    <mat-form-field appearance="fill">
+      <mat-label>RUT</mat-label>
+      <input matInput formControlName="rut" placeholder="Ingrese RUT">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>DV</mat-label>
+      <input matInput formControlName="dv" placeholder="Ingrese DV">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Cancelar</button>
+    <button mat-button (click)="consultarCodigo()" cdkFocusInitial>Consultar</button>
+  </div>

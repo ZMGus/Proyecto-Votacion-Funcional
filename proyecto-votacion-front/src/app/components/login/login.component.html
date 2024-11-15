@@ -1,0 +1,26 @@
+<div class="login-container">
+  <mat-card>
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <!-- Campo para el RUT -->
+        <mat-form-field appearance="outline" class="full-width">
+          <input type="text" matInput placeholder="Ingrese RUT" formControlName="rut">
+        </mat-form-field>
+
+        <!-- Mensaje de ayuda centrado -->
+        <small class="rut-hint">Ingrese RUT sin puntos, con guion y dígito verificador (Ej: 12345678-9)</small>
+
+        <!-- Campo para el Código de Acceso -->
+        <mat-form-field appearance="outline" class="full-width">
+          <input type="password" matInput placeholder="Código Acceso" formControlName="codigo_acceso">
+        </mat-form-field>
+
+        <!-- Botones de acción -->
+        <div class="d-flex justify-content-between">
+          <button type="submit" mat-button>Login Votante</button>
+          <button mat-button routerLink="/admin/login">Administrador</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

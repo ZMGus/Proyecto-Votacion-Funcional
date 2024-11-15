@@ -1,0 +1,9 @@
+<mat-toolbar>
+    <span>{{ title }}</span>
+    <span class="example-spacer"></span>
+    
+    <button *ngIf="backRoute" mat-icon-button (click)="navigateBack()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </mat-toolbar>
+  

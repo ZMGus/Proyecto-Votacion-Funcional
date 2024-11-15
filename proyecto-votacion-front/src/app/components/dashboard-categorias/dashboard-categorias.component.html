@@ -1,0 +1,37 @@
+<app-header [backRoute]="'/login'" [title]="'Volver al Login'"></app-header>
+<!-- Sección de bienvenida -->
+<div class="welcome-section">
+  <h1 class="main-title">Explora las Categorías</h1>
+  <p class="sub-title">Descubre los diferentes ámbitos de proyectos en la feria</p>
+</div>
+
+<!-- Contenedor de categorías -->
+<div class="card-container">
+  <div class="category-card" *ngFor="let categoria of categories(); trackBy: trackByCategoryId">
+    <mat-card class="example-card" appearance="outlined">
+      <img mat-card-image [src]="categoria.imagen" alt="{{ categoria.nombre_categoria }}" class="category-image" />
+      <mat-card-header>
+        <mat-card-title>{{ categoria.nombre_categoria }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ categoria.descripcion_categoria }}</p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button
+          mat-raised-button
+          [color]="haVotadoEnCategoria(categoria.id) ? 'warn' : 'accent'"
+          (click)="verProyectos(categoria.id)"
+          [disabled]="haVotadoEnCategoria(categoria.id)"
+          class="vote-button"
+        >
+          Ver Proyectos
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+
+
+
+

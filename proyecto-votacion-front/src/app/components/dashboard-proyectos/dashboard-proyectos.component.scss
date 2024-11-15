@@ -1,0 +1,86 @@
+/* Barra de búsqueda */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  width: 50%;
+  padding: 12px;
+  border-radius: 25px;
+  border: 2px solid #a0a4a8;
+  transition: all 0.3s ease;
+  &:focus {
+    outline: none;
+    border-color: #536976;
+  }
+}
+
+/* Contenedor de Proyectos */
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Tarjeta de Proyecto */
+.project-card {
+  flex: 1 1 calc(33% - 40px);
+  max-width: 350px;
+  margin: 20px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+}
+
+.example-card {
+  background-color: #f9f9f9;
+}
+
+/* Imagen del proyecto */
+.project-image {
+  width: 100%;
+  height: auto;
+  max-height: 150px; /* Ajusta esta altura para que la imagen no se deforme */
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+/* Título del proyecto */
+.project-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #3f51b5;
+  margin-bottom: 10px;
+}
+
+/* Botón "Ver descripción" */
+.description-button {
+  color: #3f51b5;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+/* Descripción del proyecto */
+.project-description {
+  margin-top: 10px;
+  padding: 10px;
+  text-align: justify;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Botón circular (centrado abajo) */
+.circle-radio {
+  display: flex;
+  justify-content: center;
+}

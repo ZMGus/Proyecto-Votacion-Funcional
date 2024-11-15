@@ -1,0 +1,89 @@
+/* Sección de bienvenida */
+.welcome-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #536976; /* Consistencia con la página principal */
+}
+
+.sub-title {
+  font-size: 1.5rem;
+  color: #a0a4a8;
+}
+
+/* Contenedor de categorías */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Tarjeta de categoría */
+.category-card {
+  flex: 1 1 calc(33% - 40px);
+  max-width: 350px;
+  margin: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (max-width: 768px) {
+    flex: 1 1 calc(50% - 40px);
+  }
+  @media (max-width: 480px) {
+    flex: 1 1 100%;
+  }
+}
+
+.example-card {
+  background: linear-gradient(135deg, #ece9e6, #ffffff);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.category-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+mat-card-title {
+  font-size: 1.5rem;
+  color: #3f51b5;
+}
+
+mat-card-content p {
+  color: #6b6b6b;
+}
+
+mat-card-actions button.vote-button {
+  font-size: 1rem;
+  background-color: #4CAF50; /* Color original del botón */
+  color: white;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #388E3C;
+  }
+
+  /* Estilo para el botón cuando está deshabilitado */
+  &:disabled,
+  &.mat-button-disabled {
+    background-color: #b0b0b0 !important; /* Color gris para botón deshabilitado */
+    color: #ffffff !important; /* Texto blanco para contraste */
+    cursor: not-allowed !important; /* Cambio del cursor a "no permitido" */
+  }
+}

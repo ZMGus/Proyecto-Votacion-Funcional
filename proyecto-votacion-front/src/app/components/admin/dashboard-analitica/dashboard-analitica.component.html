@@ -1,0 +1,52 @@
+<app-header [backRoute]="'/admin/login'"[title]="'ADMIN'"></app-header>
+
+<div class="admin-container">
+  <!-- Botones de acciones -->
+  <div class="actions">
+    <button mat-raised-button color="accent" (click)="openDialogSubirExcel()">Subir Excel</button>
+    <button mat-raised-button color="primary" (click)="descargarPDF()">Descargar PDF</button>
+    <button mat-raised-button color="warn" (click)="descargarExcel()">Descargar Resultados Excel</button>
+    <button mat-raised-button color="primary" (click)="openDialogInscripcionVotante()">Inscribir Votante</button>
+    <button mat-raised-button color="primary" (click)="openDialogConsultarCodigo()">Consultar Código de Acceso</button>
+  </div>
+
+    <!-- Sección de Participación -->
+    <div class="section">
+      <h2>Participación</h2>
+      <mat-card class="participation-card">
+        <mat-card-header>
+          <mat-card-title>Porcentaje de Participación</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Total: {{votos().porcentaje_participacion}}%</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  <!-- Sección de Categorías y Proyectos -->
+  <div class="section">
+    <h2>Resultados por Categoría</h2>
+    <div *ngFor="let categoria of votos().votos_categorias" class="category-section">
+      <mat-card class="category-card">
+        <mat-card-header>
+          <mat-card-title>{{ categoria.nombre_categoria }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Votos Totales en esta categoría: {{ categoria.votos }}</p>
+        </mat-card-content>
+      </mat-card>
+  
+      <!-- Proyectos ordenados dinámicamente -->
+      <div class="project-grid">
+        <mat-card *ngFor="let proyecto of filtrarProyectosPorCategoria(categoria.nombre_categoria)" class="project-card animate">
+          <mat-card-header>
+            <mat-card-title>{{ proyecto.nombre_proyecto }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>Votos Totales: {{ proyecto.votos }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
